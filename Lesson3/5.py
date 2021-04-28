@@ -8,9 +8,8 @@
 
 result = 0
 user_input = ""
-numbers = []
 
-while numbers.count("q") == 0:
+while user_input.split().count("q") == 0:
     user_input = input("Введите числа, разделенные пробелом:\n")
     for number in user_input.split():
         if number == "q":
