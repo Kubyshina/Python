@@ -22,9 +22,7 @@
 """
 
 productList = []
-spec = ["название", "цена", "количество", "ед"]
-
-productDict = {}
+productDict = {"название": [], "цена": [], "количество": [], "ед": []}
 
 iterator = 0
 
@@ -41,17 +39,19 @@ while True:
         break
 
     iterator += 1
-    productParameters = {spec[0]: product[0], spec[1]: product[1], spec[2]: product[2], spec[3]: product[3]}
+    productParameters = {"название": product[0], "цена": product[1], "количество": product[2], "ед": product[3]}
     productList.append((iterator, productParameters))
 
 print(productList)
 
-for sp in spec:
-    for _, param in productList:
-        if productDict.get(sp):
-            if param.get(sp) not in productDict[sp]:
-                productDict[sp].append(param.get(sp))
-        else:
-            productDict[sp] = param.get(sp)
+for el in productList:
+    if el[1].get("название") not in productDict["название"]:
+        productDict["название"].append(el[1].get("название"))
+    if el[1].get("цена") not in productDict["цена"]:
+        productDict["цена"].append(el[1].get("цена"))
+    if el[1].get("количество") not in productDict["количество"]:
+        productDict["количество"].append(el[1].get("количество"))
+    if el[1].get("ед") not in productDict["ед"]:
+        productDict["ед"].append(el[1].get("ед"))
 
 print(productDict)
