@@ -5,3 +5,38 @@ Handle (маркер). В каждом из классов реализоват�
 выводить уникальное сообщение. Создать экземпляры классов и проверить, что выведет описанный метод для каждого
 экземпляра.
 """
+
+
+class Stationery:
+    title = ""
+
+    def draw(self):
+        print("Запуск отрисовки.")
+
+
+class Pen(Stationery):
+    def draw(self):
+        super().draw()
+        print("Ручка пишет.")
+
+
+class Pencil(Stationery):
+    def draw(self):
+        super().draw()
+        print("Карандаш рисует.")
+
+
+class Handle(Stationery):
+    def draw(self):
+        super().draw()
+        print("Маркер выделяет.")
+
+
+pen = Pen()
+pen.draw()
+
+pencil = Pencil()
+pencil.draw()
+
+handle = Handle()
+handle.draw()
