@@ -8,7 +8,9 @@ Handle (маркер). В каждом из классов реализоват�
 
 
 class Stationery:
-    title = ""
+
+    def __init__(self, title):
+        self.title = title
 
     def draw(self):
         print("Запуск отрисовки.")
@@ -32,11 +34,14 @@ class Handle(Stationery):
         print("Маркер выделяет.")
 
 
-pen = Pen()
+pen = Pen("ручка")
+print(pen.title)
 pen.draw()
 
-pencil = Pencil()
+pencil = Pencil("карандаш")
+print(pencil.title)
 pencil.draw()
 
-handle = Handle()
+handle = Handle("маркер")
+print(handle.title)
 handle.draw()
