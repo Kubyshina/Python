@@ -21,3 +21,41 @@
 Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод make_order() вернет строку:
 *****\n*****\n*****.
 """
+
+
+class Cell:
+
+    def __init__(self, number: int):
+        self.number = number
+
+    def __sub__(self, other):
+        if self.number > other.number:
+            return Cell(self.number - other.number)
+        else:
+            print("Нельзя вычесть - разность количества ячеек двух клеток меньше нуля!")
+
+    def __add__(self, other):
+        return Cell(self.number + other.number)
+
+    def __mul__(self, other):
+        return Cell(self.number * other.number)
+
+    def __truediv__(self, other):
+        return Cell(round(self.number / other.number))
+
+    def make_order(self, line_size):
+        string = ""
+        for i in range(1, self.number + 1):
+            string += "*"
+            if i % line_size == 0 or i == self.number:
+                string += "\n"
+        return string
+
+
+cell1 = Cell(20)
+cell2 = Cell(5)
+
+print((cell1 + cell2).make_order(11))
+print((cell1 - cell2).make_order(6))
+print((cell1 * cell2).make_order(20))
+print((cell1 / cell2).make_order(2))
